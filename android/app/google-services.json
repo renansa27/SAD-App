@@ -12,7 +12,20 @@
           "package_name": "com.org.sadapp"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "735607833348-t05sub5ql5n4dkbl73gdc2celk0esjhg.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.org.sadapp",
+            "certificate_hash": "9375270914001308d488f51137a8f534d02b4339"
+          }
+        },
+        {
+          "client_id": "735607833348-6um2i8kjskv0tjrkhg5l62er14q1r3ma.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyCIVV35nQpYNBrfnAEwiClPq8RH10tVhos"
@@ -20,7 +33,19 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "735607833348-6um2i8kjskv0tjrkhg5l62er14q1r3ma.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "735607833348-d9j5i7g6lqogdn44t1rgalo14u46e0td.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.org.sadapp"
+              }
+            }
+          ]
         }
       }
     }

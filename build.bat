@@ -1,0 +1,2 @@
+@echo off
+dart run easy_localization:generate -S assets/translations -O lib/translations -o codegen_loader.g.dart && dart run easy_localization:generate -S assets/translations -O lib/translations -f keys -o locale_keys.g.dart && dart run build_runner build --delete-conflicting-outputs

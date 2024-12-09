@@ -1,0 +1,65 @@
+// DO NOT EDIT. This is code generated via package:easy_localization/generate.dart
+
+abstract class  LocaleKeys {
+  static const login_google = 'login_google';
+  static const login_sign_up = 'login_sign_up';
+  static const login_email = 'login_email';
+  static const login_forgot_password = 'login_forgot_password';
+  static const login_password = 'login_password';
+  static const login_no_account = 'login_no_account';
+  static const reset_password_password = 'reset_password_password';
+  static const reset_password_confirm_password = 'reset_password_confirm_password';
+  static const reset_password_create_new_password = 'reset_password_create_new_password';
+  static const sign_up_title = 'sign_up_title';
+  static const login_title = 'login_title';
+  static const reset_password_title = 'reset_password_title';
+  static const sign_up_email = 'sign_up_email';
+  static const sign_up_password = 'sign_up_password';
+  static const sign_up_confirm_password = 'sign_up_confirm_password';
+  static const sign_up_create_account = 'sign_up_create_account';
+  static const sign_up_or = 'sign_up_or';
+  static const sign_up_google = 'sign_up_google';
+  static const forgot_password_title = 'forgot_password_title';
+  static const forgot_password_enter_email_text = 'forgot_password_enter_email_text';
+  static const forgot_password_email = 'forgot_password_email';
+  static const forgot_password_send_instructions = 'forgot_password_send_instructions';
+  static const forgot_password_email_field_empty = 'forgot_password_email_field_empty';
+  static const email_validation_title = 'email_validation_title';
+  static const email_validation_check_your_email = 'email_validation_check_your_email';
+  static const email_validation_verification_text = 'email_validation_verification_text';
+  static const contact_list_search_contact = 'contact_list_search_contact';
+  static const contact_list_title = 'contact_list_title';
+  static const contact_list_connect = 'contact_list_connect';
+  static const contact_list_redirect_text = 'contact_list_redirect_text';
+  static const contact_list_not_found = 'contact_list_not_found';
+  static const contact_list_no_contact_found = 'contact_list_no_contact_found';
+  static const contact_list_call = 'contact_list_call';
+  static const contact_list_sms = 'contact_list_sms';
+  static const home_save_cloud = 'home_save_cloud';
+  static const home_retrieve_cloud = 'home_retrieve_cloud';
+  static const home_export_contacts_csv = 'home_export_contacts_csv';
+  static const home_import_contacts_csv = 'home_import_contacts_csv';
+  static const home_check_contacts_cloud = 'home_check_contacts_cloud';
+  static const home_reset_contacts = 'home_reset_contacts';
+  static const home_buy_coffee = 'home_buy_coffee';
+  static const home_logout = 'home_logout';
+  static const home_save_contact_cloud = 'home_save_contact_cloud';
+  static const home_registered_contacts_text = 'home_registered_contacts_text';
+  static const home_save = 'home_save';
+  static const home_retrieve_contacts = 'home_retrieve_contacts';
+  static const home_retrieve = 'home_retrieve';
+  static const home_export_your_contacts_csv = 'home_export_your_contacts_csv';
+  static const home_export_contacts_text = 'home_export_contacts_text';
+  static const home_export = 'home_export';
+  static const home_import_contacts_text = 'home_import_contacts_text';
+  static const home_import = 'home_import';
+  static const home_my_crypto_address = 'home_my_crypto_address';
+  static const home_crypto_text = 'home_crypto_text';
+  static const home_ok = 'home_ok';
+  static const home_delete_all_contacts = 'home_delete_all_contacts';
+  static const home_delete = 'home_delete';
+  static const home_crypto_address_copied = 'home_crypto_address_copied';
+  static const contact_service_my_contacts = 'contact_service_my_contacts';
+  static const language_dialog_title = 'language_dialog_title';
+
+}

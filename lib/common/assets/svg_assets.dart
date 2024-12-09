@@ -1,0 +1,30 @@
+class SvgAssets {
+  static const google = 'assets/images_svg/google.svg';
+  static const facebook = 'assets/images_svg/facebook.svg';
+  static const downloadCloud = 'assets/images_svg/downloadCloud.svg';
+  static const download = 'assets/images_svg/download.svg';
+  static const uploadCloud = 'assets/images_svg/uploadCloud.svg';
+  static const uploading = 'assets/images_svg/uploading.svg';
+  static const fileText = 'assets/images_svg/fileText.svg';
+  static const users = 'assets/images_svg/users.svg';
+  static const userMinus = 'assets/images_svg/user-minus.svg';
+  static const coffee = 'assets/images_svg/coffee.svg';
+  static const menuClose = 'assets/images_svg/menuClose.svg';
+  static const contactSearch = 'assets/images_svg/contact_search.svg';
+  static const select = 'assets/images_svg/select.svg';
+  static const logout = 'assets/images_svg/logout.svg';
+  static const call = 'assets/images_svg/call.svg';
+  static const crypto = 'assets/images_svg/undraw_bitcoin.svg';
+  static const bitcoin = 'assets/images_svg/bitcoin-logo.svg';
+  static const ethereum = 'assets/images_svg/ethereum-logo.svg';
+  static const usdt = 'assets/images_svg/usdt-logo.svg';
+  static const pix = 'assets/images_svg/pix.svg';
+  static const exportFile = 'assets/images_svg/export_files.svg';
+  static const cleanUp = 'assets/images_svg/clean_up.svg';
+  static const brazil = 'assets/images_svg/brazil.svg';
+  static const usa = 'assets/images_svg/usa.svg';
+  static const germany = 'assets/images_svg/germany.svg';
+  static const spain = 'assets/images_svg/spain.svg';
+  static const france = 'assets/images_svg/france.svg';
+  static const connectedWorld = 'assets/images_svg/connected_world.svg';
+}
