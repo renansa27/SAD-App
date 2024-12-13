@@ -13,8 +13,7 @@ class AppWidget extends StatelessWidget {
   final GlobalKey<ScaffoldMessengerState>? snackbarKey;
   final PendingDynamicLinkData? initialLink;
   const AppWidget(
-      {Key? key, required this.snackbarKey, required this.initialLink})
-      : super(key: key);
+      {super.key, required this.snackbarKey, required this.initialLink});
 
   @override
   Widget build(BuildContext context) {

@@ -12,7 +12,7 @@ class CommonLargeButton extends StatelessWidget {
   final IconData? iconData;
 
   const CommonLargeButton({
-    Key? key,
+    super.key,
     required this.text,
     this.btnTextColor,
     required this.onPressed,
@@ -21,7 +21,7 @@ class CommonLargeButton extends StatelessWidget {
     this.color,
     this.gradientColor = AppColors.turquoiseTohalloweenOrange,
     this.iconData,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -76,8 +76,7 @@ class _Text extends StatelessWidget {
   final Color? textColor;
   final IconData? iconData;
 
-  const _Text(this.text, {Key? key, this.textColor, this.iconData})
-      : super(key: key);
+  const _Text(this.text, {this.textColor, this.iconData});
 
   @override
   Widget build(BuildContext context) {

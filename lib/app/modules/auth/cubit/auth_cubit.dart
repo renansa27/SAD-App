@@ -40,7 +40,7 @@ class AuthCubit extends Cubit<AuthState> {
     }
   }
 
-  Future<void> signUpWithEmail({
+  Future<UserCredential?> signUpWithEmail({
     @required String? email,
     @required String? password,
   }) async {
@@ -48,22 +48,24 @@ class AuthCubit extends Cubit<AuthState> {
       isLoading: true,
     ));
     try {
-      await _authService.signUpWithEmail(
+      UserCredential? userCredential = await _authService.signUpWithEmail(
         email: email,
         password: password,
       );
       await getUser();
       emit(state.copyWith(isLoading: false));
+      return userCredential;
     } on FirebaseAuthException catch (e) {
       emit(state.copyWith(
         isLoading: false,
         error: e.message,
       ));
     }
+    return null;
   }
 
   Future<void> sendEmailVerification() async {
-    await _authService.sendEmailVarification();
+    //await _authService.sendEmailVarification();
     logger.d('Enviou email de verificação');
   }
 

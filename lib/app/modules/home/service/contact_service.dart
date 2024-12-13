@@ -2,9 +2,9 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'dart:typed_data';
-import 'package:sad_app/translations/locale_keys.g.dart';
+//import 'package:sad_app/translations/locale_keys.g.dart';
 import 'package:csv/csv.dart';
-import 'package:easy_localization/easy_localization.dart';
+//import 'package:easy_localization/easy_localization.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
@@ -15,9 +15,9 @@ import 'package:permission_handler/permission_handler.dart';
 
 import 'package:sad_app/common/log.dart';
 import 'package:sad_app/app/modules/home/models/contact/contact_model.dart';
-import 'package:sad_app/app/modules/home/models/email/email.dart';
+/* import 'package:sad_app/app/modules/home/models/email/email.dart';
 import 'package:sad_app/app/modules/home/models/phone/phone.dart';
-import 'package:sad_app/app/modules/home/models/postal_addresses/postal_address_model.dart';
+import 'package:sad_app/app/modules/home/models/postal_addresses/postal_address_model.dart'; */
 
 abstract class ContactService {
   Future<String>? createCsv();
@@ -79,7 +79,7 @@ class ContactServiceImpl extends ContactService {
   @override
   Future<String>? createCsv() async {
     List<ContactModel> contactModelList = [];
-    final isPermissionGranted = await Permission.contacts.request();
+    //final isPermissionGranted = await Permission.contacts.request();
     /* if (isPermissionGranted == PermissionStatus.granted) {
       List<Contact> contactsList = await ContactsService.getContacts();
       for (var contact in contactsList) {
@@ -153,7 +153,7 @@ class ContactServiceImpl extends ContactService {
   }
 
   Future<List<ContactModel>?> _getLocalContacts() async {
-    final isPermissionGranted = await Permission.contacts.request();
+    //final isPermissionGranted = await Permission.contacts.request();
     List<ContactModel>? contactModelList = [];
     /* if (isPermissionGranted == PermissionStatus.granted) {
       List<Contact>? contactsList = await ContactsService.getContacts();
@@ -284,7 +284,7 @@ class ContactServiceImpl extends ContactService {
 
   @override
   Future<void> deleteAllContacts() async {
-    final isPermissionGranted = await _getUserPermission();
+    //final isPermissionGranted = await _getUserPermission();
     /* if (isPermissionGranted) {
       final contacts = await ContactsService.getContacts();
       for (var contact in contacts) {

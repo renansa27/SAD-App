@@ -1,5 +1,6 @@
 import 'package:sad_app/app/modules/home/cubit/donate_component_cubit/donate_component.dart';
 import 'package:sad_app/app/modules/home/cubit/donate_component_cubit/donate_component_cubit.dart';
+import 'package:sad_app/app/modules/home/cubit/professional_cubit/professional_cubit.dart';
 import 'package:sad_app/common/consts.dart';
 import 'package:sad_app/common/widgets/common_large_button.dart';
 import 'package:sad_app/common/widgets/common_scaffold.dart';
@@ -20,7 +21,7 @@ import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
+  const HomePage({super.key});
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -29,6 +30,8 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   final AuthCubit _authCubit = Modular.get<AuthCubit>();
   final ContactCubit _contactCubit = Modular.get<ContactCubit>();
+  final ProfessionalCubit _professionalCubit = Modular.get<ProfessionalCubit>();
+  //final SadAppCubit _contactCubit = Modular.get<ContactCubit>();
   final DonateComponentCubit _donateComponentCubit =
       Modular.get<DonateComponentCubit>();
 
@@ -357,8 +360,11 @@ class _HomePageState extends State<HomePage> {
       subtitle: LocaleKeys.home_export_contacts_text.tr(),
       btnTitle: LocaleKeys.home_export.tr(),
       onPress: () async {
-        Modular.to.pop();
-        await _contactCubit.shareContacts();
+        //Modular.to.pop();
+        //await _professionalCubit.createProfessional();
+        /* await _sadAppCubit.getProfessionalById(
+          professionalId: 'v1QjUecINA1Y5qdJdyLQ',
+        ); */
       },
     );
   }

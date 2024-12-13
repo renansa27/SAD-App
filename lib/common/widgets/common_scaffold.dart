@@ -31,7 +31,7 @@ class CommonScaffold extends StatefulWidget {
   final double countryLeftPadding;
   final double countryBottomPadding;
   const CommonScaffold({
-    Key? key,
+    super.key,
     this.appBar,
     required this.child,
     this.isLoading = false,
@@ -43,7 +43,7 @@ class CommonScaffold extends StatefulWidget {
     this.drawer,
     this.backgroundColor = AppColors.blackPearl,
     this.resizeToAvoidBottomInset = true,
-  }) : super(key: key);
+  });
 
   @override
   State<CommonScaffold> createState() => _CommonScaffoldState();

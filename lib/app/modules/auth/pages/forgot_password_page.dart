@@ -14,9 +14,9 @@ import 'package:flutter_modular/flutter_modular.dart';
 class ForgotPasswordPage extends StatefulWidget {
   final VoidCallback? onLeadingPressed;
   const ForgotPasswordPage({
-    Key? key,
+    super.key,
     this.onLeadingPressed,
-  }) : super(key: key);
+  });
 
   @override
   State<ForgotPasswordPage> createState() => _ForgotPasswordPageState();

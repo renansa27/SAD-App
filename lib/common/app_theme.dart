@@ -4,8 +4,11 @@ import 'package:google_fonts/google_fonts.dart';
 
 abstract class AppTheme {
   static final defaultTheme = ThemeData(
+    primarySwatch: Colors.orange, // Define a cor primária como laranja
+    unselectedWidgetColor:
+        Colors.orange, // Define a cor dos widgets desativados
     brightness: Brightness.light,
-    primaryColor: AppColors.primaryColor,
+    primaryColor: AppColors.halloweenOrange,
     hintColor: AppColors.hintColorTextField,
     dividerColor: AppColors.dividerColor,
     scaffoldBackgroundColor: AppColors.aliceBlue,
@@ -20,19 +23,25 @@ abstract class AppTheme {
     buttonTheme: const ButtonThemeData(
       colorScheme: ColorScheme(
         primary: Color(0xff51B848),
-        primaryContainer: Color(0xff0088CB),
+        primaryContainer: AppColors.halloweenOrange,
         secondary: Color(0xff51B848),
-        secondaryContainer: Color(0xff0088CB),
+        secondaryContainer: AppColors.halloweenOrange,
         surface: Color(0xffeceff0),
-        background: Color(0xffeceff0),
         error: Colors.red,
         onPrimary: Color(0xff51B848),
         onSecondary: Color(0xffeceff0),
-        onSurface: Color(0xff0088CB),
-        onBackground: Color(0xffeceff0),
+        onSurface: AppColors.halloweenOrange,
         onError: Colors.red,
         brightness: Brightness.light,
       ),
+    ),
+    radioTheme: RadioThemeData(
+      fillColor: WidgetStateProperty.resolveWith<Color>((states) {
+        if (states.contains(WidgetState.selected)) {
+          return AppColors.halloweenOrange; // Cor quando selecionado
+        }
+        return AppColors.halloweenOrange; // Cor padrão
+      }),
     ),
     textButtonTheme: TextButtonThemeData(
       style: TextButton.styleFrom(),
