@@ -28,12 +28,14 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  final AuthCubit _authCubit = Modular.get<AuthCubit>();
-  final ContactCubit _contactCubit = Modular.get<ContactCubit>();
-  final ProfessionalCubit _professionalCubit = Modular.get<ProfessionalCubit>();
-  //final SadAppCubit _contactCubit = Modular.get<ContactCubit>();
-  final DonateComponentCubit _donateComponentCubit =
+  AuthCubit get _authCubit => Modular.get<AuthCubit>();
+  ContactCubit get _contactCubit => Modular.get<ContactCubit>();
+  ProfessionalCubit get _professionalCubit => Modular.get<ProfessionalCubit>();
+  DonateComponentCubit get _donateComponentCubit =>
       Modular.get<DonateComponentCubit>();
+  //final SadAppCubit _contactCubit = Modular.get<ContactCubit>();
+  /* final DonateComponentCubit _donateComponentCubit =
+      Modular.get<DonateComponentCubit>(); */
 
   @override
   Widget build(BuildContext context) {

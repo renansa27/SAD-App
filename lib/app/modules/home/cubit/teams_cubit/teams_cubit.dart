@@ -1,21 +1,25 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:sad_app/app/modules/home/cubit/patients_cubit/patient_state.dart';
+import 'package:sad_app/app/modules/home/cubit/teams_cubit/teams_state.dart';
+import 'package:sad_app/app/modules/home/models/teams/teams_model.dart';
 import 'package:sad_app/app/modules/home/service/teams_service.dart';
 
-class TeamsState extends Cubit<PatientState> {
+class TeamsCubit extends Cubit<TeamsState> {
   final TeamsService teamsService;
-  TeamsState(this.teamsService) : super(PatientState.init());
+  TeamsCubit(this.teamsService) : super(TeamsState.init());
 
-  Future<void> getAllPatients() async {
-    //emit(ContactLoading());
-    //emitIsLoading();
+  Future<void> getAllTeams() async {
     try {
-      await teamsService.getAllTeams();
+      emitIsLoading();
       //emitIsNotLoading();
-      //emit(ContactLoaded());
+      QuerySnapshot<Object?> teamsList = await teamsService.getAllTeams();
+      List<TeamsModel> teamsModelList =
+          teamsList.docs.map((e) => TeamsModel.fromFirestore(e)).toList();
+      //logger.d(teamsModelList);
+      emitTeamsList(teamsModelList);
     } on Exception catch (e) {
-      //emitError(message: e.toString());
-      //emit(ContactError(error: e.toString()));
+      emitError(message: e.toString());
     }
   }
 
@@ -36,5 +40,34 @@ class TeamsState extends Cubit<PatientState> {
     try {
       await teamsService.createTeam(name, professionalIds);
     } on Exception catch (e) {}
+  }
+
+  void emitIsLoading() {
+    emit(state.copyWith(isLoading: true));
+  }
+
+  void emitIsNotLoading() {
+    emit(state.copyWith(isLoading: false));
+  }
+
+  void emitTeamsList(List<TeamsModel>? teamsList) {
+    if (teamsList?.isNotEmpty ?? false) {
+      emit(state.copyWith(
+        isLoading: false,
+        teamsList: teamsList,
+      ));
+    } else {
+      emit(state.copyWith(
+        isLoading: false,
+        teamsList: null,
+      ));
+    }
+  }
+
+  void emitError({@required String? message}) {
+    emit(state.copyWith(
+      error: message,
+      isLoading: false,
+    ));
   }
 }

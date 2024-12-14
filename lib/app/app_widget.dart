@@ -31,8 +31,11 @@ class AppWidget extends StatelessWidget {
       title: flutterAppName,
       scaffoldMessengerKey: snackbarKey,
       theme: AppTheme.defaultTheme,
-      routeInformationParser: Modular.routeInformationParser,
-      routerDelegate: Modular.routerDelegate,
+      //Modular V6
+      routerConfig: Modular.routerConfig,
+      // Modular v5
+      /* routeInformationParser: Modular.routeInformationParser,
+      routerDelegate: Modular.routerDelegate, */
     );
   }
 

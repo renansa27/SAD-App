@@ -8,12 +8,40 @@ import 'package:sad_app/app/modules/auth/pages/splash_page.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
 class AuthModule extends Module {
+  //Modular V6
   @override
-  final List<Bind> binds = [
-    Bind.instance((i) => Modular.get<AuthCubit>()),
-  ];
+  void binds(i) {
+    i.addInstance(AuthCubit);
+  }
 
   @override
+  void routes(r) {
+    r.child(Modular.initialRoute, child: (context) => SplashPage());
+    r.child('/login', child: (context) => LoginPage());
+    r.child(
+      '/emailVerifyPage/:oobCode',
+      child: (context) =>
+          EmailValidationPage(oobCode: r.args.params['oobCode']),
+    );
+    r.child('/forgotPassword', child: (context) => ForgotPasswordPage());
+    r.child(
+      '/resetPassword/:oobCode',
+      child: (context) => ResetPasswordPage(oobCode: r.args.params['oobCode']),
+    );
+    r.child('/signUp', child: (context) => SignUpPage());
+  }
+
+  //Modular V5
+  /* @override
+  final List<Bind> binds = [
+    Bind.instance((i) => Modular.get<AuthCubit>()),
+/*     Bind.lazySingleton((i) => Modular.get<ProfessionalCubit>()),
+    Bind.lazySingleton((i) => Modular.get<PatientCubit>()),
+    Bind.lazySingleton((i) => Modular.get<TeamsCubit>()),
+    Bind.lazySingleton((i) => Modular.get<SpecialtiesCubit>()), */
+  ]; */
+
+  /* @override
   final List<ModularRoute> routes = [
     ChildRoute(
       Modular.initialRoute,
@@ -41,5 +69,5 @@ class AuthModule extends Module {
       '/signUp',
       child: (context, args) => const SignUpPage(),
     ),
-  ];
+  ]; */
 }

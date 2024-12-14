@@ -23,9 +23,14 @@ mixin _$ProfessionalModel {
   String? get id => throw _privateConstructorUsedError;
   DateTime? get createdAt => throw _privateConstructorUsedError;
   String? get email => throw _privateConstructorUsedError;
-  SpecialtiesModel? get specialtyRef => throw _privateConstructorUsedError;
+  @JsonKey(
+      fromJson: _documentReferenceFromJson, toJson: _documentReferenceToJson)
+  DocumentReference<Object?>? get specialtyRef =>
+      throw _privateConstructorUsedError;
   String? get name => throw _privateConstructorUsedError;
-  TeamsModel? get teamRef => throw _privateConstructorUsedError;
+  @JsonKey(
+      fromJson: _documentReferenceFromJson, toJson: _documentReferenceToJson)
+  DocumentReference<Object?>? get teamRef => throw _privateConstructorUsedError;
 
   /// Serializes this ProfessionalModel to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -47,12 +52,15 @@ abstract class $ProfessionalModelCopyWith<$Res> {
       {String? id,
       DateTime? createdAt,
       String? email,
-      SpecialtiesModel? specialtyRef,
+      @JsonKey(
+          fromJson: _documentReferenceFromJson,
+          toJson: _documentReferenceToJson)
+      DocumentReference<Object?>? specialtyRef,
       String? name,
-      TeamsModel? teamRef});
-
-  $SpecialtiesModelCopyWith<$Res>? get specialtyRef;
-  $TeamsModelCopyWith<$Res>? get teamRef;
+      @JsonKey(
+          fromJson: _documentReferenceFromJson,
+          toJson: _documentReferenceToJson)
+      DocumentReference<Object?>? teamRef});
 }
 
 /// @nodoc
@@ -93,7 +101,7 @@ class _$ProfessionalModelCopyWithImpl<$Res, $Val extends ProfessionalModel>
       specialtyRef: freezed == specialtyRef
           ? _value.specialtyRef
           : specialtyRef // ignore: cast_nullable_to_non_nullable
-              as SpecialtiesModel?,
+              as DocumentReference<Object?>?,
       name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -101,36 +109,8 @@ class _$ProfessionalModelCopyWithImpl<$Res, $Val extends ProfessionalModel>
       teamRef: freezed == teamRef
           ? _value.teamRef
           : teamRef // ignore: cast_nullable_to_non_nullable
-              as TeamsModel?,
+              as DocumentReference<Object?>?,
     ) as $Val);
-  }
-
-  /// Create a copy of ProfessionalModel
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $SpecialtiesModelCopyWith<$Res>? get specialtyRef {
-    if (_value.specialtyRef == null) {
-      return null;
-    }
-
-    return $SpecialtiesModelCopyWith<$Res>(_value.specialtyRef!, (value) {
-      return _then(_value.copyWith(specialtyRef: value) as $Val);
-    });
-  }
-
-  /// Create a copy of ProfessionalModel
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $TeamsModelCopyWith<$Res>? get teamRef {
-    if (_value.teamRef == null) {
-      return null;
-    }
-
-    return $TeamsModelCopyWith<$Res>(_value.teamRef!, (value) {
-      return _then(_value.copyWith(teamRef: value) as $Val);
-    });
   }
 }
 
@@ -146,14 +126,15 @@ abstract class _$$ProfessionalModelImplCopyWith<$Res>
       {String? id,
       DateTime? createdAt,
       String? email,
-      SpecialtiesModel? specialtyRef,
+      @JsonKey(
+          fromJson: _documentReferenceFromJson,
+          toJson: _documentReferenceToJson)
+      DocumentReference<Object?>? specialtyRef,
       String? name,
-      TeamsModel? teamRef});
-
-  @override
-  $SpecialtiesModelCopyWith<$Res>? get specialtyRef;
-  @override
-  $TeamsModelCopyWith<$Res>? get teamRef;
+      @JsonKey(
+          fromJson: _documentReferenceFromJson,
+          toJson: _documentReferenceToJson)
+      DocumentReference<Object?>? teamRef});
 }
 
 /// @nodoc
@@ -192,7 +173,7 @@ class __$$ProfessionalModelImplCopyWithImpl<$Res>
       specialtyRef: freezed == specialtyRef
           ? _value.specialtyRef
           : specialtyRef // ignore: cast_nullable_to_non_nullable
-              as SpecialtiesModel?,
+              as DocumentReference<Object?>?,
       name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -200,22 +181,26 @@ class __$$ProfessionalModelImplCopyWithImpl<$Res>
       teamRef: freezed == teamRef
           ? _value.teamRef
           : teamRef // ignore: cast_nullable_to_non_nullable
-              as TeamsModel?,
+              as DocumentReference<Object?>?,
     ));
   }
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$ProfessionalModelImpl
-    with DiagnosticableTreeMixin
-    implements _ProfessionalModel {
+class _$ProfessionalModelImpl implements _ProfessionalModel {
   const _$ProfessionalModelImpl(
       {required this.id,
       required this.createdAt,
       required this.email,
+      @JsonKey(
+          fromJson: _documentReferenceFromJson,
+          toJson: _documentReferenceToJson)
       required this.specialtyRef,
       required this.name,
+      @JsonKey(
+          fromJson: _documentReferenceFromJson,
+          toJson: _documentReferenceToJson)
       required this.teamRef});
 
   factory _$ProfessionalModelImpl.fromJson(Map<String, dynamic> json) =>
@@ -228,28 +213,19 @@ class _$ProfessionalModelImpl
   @override
   final String? email;
   @override
-  final SpecialtiesModel? specialtyRef;
+  @JsonKey(
+      fromJson: _documentReferenceFromJson, toJson: _documentReferenceToJson)
+  final DocumentReference<Object?>? specialtyRef;
   @override
   final String? name;
   @override
-  final TeamsModel? teamRef;
+  @JsonKey(
+      fromJson: _documentReferenceFromJson, toJson: _documentReferenceToJson)
+  final DocumentReference<Object?>? teamRef;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'ProfessionalModel(id: $id, createdAt: $createdAt, email: $email, specialtyRef: $specialtyRef, name: $name, teamRef: $teamRef)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'ProfessionalModel'))
-      ..add(DiagnosticsProperty('id', id))
-      ..add(DiagnosticsProperty('createdAt', createdAt))
-      ..add(DiagnosticsProperty('email', email))
-      ..add(DiagnosticsProperty('specialtyRef', specialtyRef))
-      ..add(DiagnosticsProperty('name', name))
-      ..add(DiagnosticsProperty('teamRef', teamRef));
   }
 
   @override
@@ -291,12 +267,19 @@ class _$ProfessionalModelImpl
 
 abstract class _ProfessionalModel implements ProfessionalModel {
   const factory _ProfessionalModel(
-      {required final String? id,
-      required final DateTime? createdAt,
-      required final String? email,
-      required final SpecialtiesModel? specialtyRef,
-      required final String? name,
-      required final TeamsModel? teamRef}) = _$ProfessionalModelImpl;
+          {required final String? id,
+          required final DateTime? createdAt,
+          required final String? email,
+          @JsonKey(
+              fromJson: _documentReferenceFromJson,
+              toJson: _documentReferenceToJson)
+          required final DocumentReference<Object?>? specialtyRef,
+          required final String? name,
+          @JsonKey(
+              fromJson: _documentReferenceFromJson,
+              toJson: _documentReferenceToJson)
+          required final DocumentReference<Object?>? teamRef}) =
+      _$ProfessionalModelImpl;
 
   factory _ProfessionalModel.fromJson(Map<String, dynamic> json) =
       _$ProfessionalModelImpl.fromJson;
@@ -308,11 +291,15 @@ abstract class _ProfessionalModel implements ProfessionalModel {
   @override
   String? get email;
   @override
-  SpecialtiesModel? get specialtyRef;
+  @JsonKey(
+      fromJson: _documentReferenceFromJson, toJson: _documentReferenceToJson)
+  DocumentReference<Object?>? get specialtyRef;
   @override
   String? get name;
   @override
-  TeamsModel? get teamRef;
+  @JsonKey(
+      fromJson: _documentReferenceFromJson, toJson: _documentReferenceToJson)
+  DocumentReference<Object?>? get teamRef;
 
   /// Create a copy of ProfessionalModel
   /// with the given fields replaced by the non-null parameter values.

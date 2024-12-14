@@ -3,7 +3,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 
 abstract class SpecialtiesService {
   Future<void> createSpecialty(String name, {String? description});
-  Future<DocumentSnapshot> readSpecialty(String specialtyId);
+  Future<DocumentSnapshot> getSpecialtiesById(String specialtyId);
   Future<void> updateSpecialty(String specialtyId,
       {String? name, String? description});
   Future<QuerySnapshot> getAllSpecialties();
@@ -22,7 +22,7 @@ class SpecialtiesServiceImpl extends SpecialtiesService {
   }
 
   @override
-  Future<DocumentSnapshot> readSpecialty(String specialtyId) async {
+  Future<DocumentSnapshot> getSpecialtiesById(String specialtyId) async {
     FirebaseFirestore firestore = FirebaseFirestore.instance;
 
     DocumentSnapshot specialtyDoc =

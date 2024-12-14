@@ -8,19 +8,20 @@ import 'package:sad_app/main.dart';
 abstract class ProfessionalService {
   getAllProfessionals();
   getAllDataFromFirestore();
-  createProfessional(
+  Future<void> createProfessional(
+    String id,
     String name,
     String email,
-    SpecialtiesModel? specialtyRef,
-    TeamsModel? teamRef,
+    String specialtyId,
+    String teamId,
   );
   getProfessionalById(String id);
-  updateProfessional({
+  Future<void> updateProfessional({
     required String id,
     required String name,
     required String email,
-    SpecialtiesModel? specialtyRef,
-    TeamsModel? teamRef,
+    required String specialtyId,
+    required String teamId,
   });
   deleteProfessional(String id);
 }
@@ -48,7 +49,7 @@ class ProfessionalServiceImpl extends ProfessionalService {
     });
   } */
 
-  @override
+  /* @override
   Future<void> createProfessional(
     String name,
     String email,
@@ -56,15 +57,41 @@ class ProfessionalServiceImpl extends ProfessionalService {
     TeamsModel? teamRef,
   ) async {
     ProfessionalModel professional = ProfessionalModel(
-      id: '',
       name: name,
       email: email,
       createdAt: DateTime.now(),
       specialtyRef: specialtyRef,
       teamRef: teamRef,
     );
+    try {
+      await _firestore.collection('professionals').add(professional.toJson());
+    } on Exception catch (e) {
+      logger.e(e);
+    }
+  } */
 
-    await _firestore.collection('professionals').add(professional.toJson());
+  @override
+  Future<void> createProfessional(
+    String id,
+    String name,
+    String email,
+    String specialtyId,
+    String teamId,
+  ) async {
+    ProfessionalModel professional = ProfessionalModel(
+      id: id,
+      name: name,
+      email: email,
+      createdAt: DateTime.now(),
+      specialtyRef:
+          FirebaseFirestore.instance.collection('specialties').doc(specialtyId),
+      teamRef: FirebaseFirestore.instance.collection('teams').doc(teamId),
+    );
+    try {
+      await _firestore.collection('professionals').add(professional.toJson());
+    } on Exception catch (e) {
+      logger.e(e);
+    }
   }
 
   @override
@@ -77,6 +104,7 @@ class ProfessionalServiceImpl extends ProfessionalService {
     return null;
   }
 
+  /* @override
   Future<void> updateProfessional({
     required String id,
     required String name,
@@ -96,6 +124,32 @@ class ProfessionalServiceImpl extends ProfessionalService {
         .collection('professionals')
         .doc(professional.id)
         .update(professional.toJson());
+  } */
+  @override
+  Future<void> updateProfessional({
+    required String id,
+    required String name,
+    required String email,
+    required String specialtyId,
+    required String teamId,
+  }) async {
+    ProfessionalModel professional = ProfessionalModel(
+      id: id,
+      name: name,
+      email: email,
+      specialtyRef:
+          FirebaseFirestore.instance.collection('specialties').doc(specialtyId),
+      teamRef: FirebaseFirestore.instance.collection('teams').doc(teamId),
+      createdAt: DateTime.now(),
+    );
+    try {
+      await _firestore
+          .collection('professionals')
+          .doc(professional.id)
+          .update(professional.toJson());
+    } on Exception catch (e) {
+      logger.e(e);
+    }
   }
 
   @override

@@ -26,4 +26,11 @@ class SpecialtiesModel with _$SpecialtiesModel {
       name: data['name'] ?? '',
     );
   }
+
+  Map<String, Object?> toJson() {
+    return {
+      'id': id,
+      'name': name,
+    };
+  }
 }

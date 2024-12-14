@@ -1,5 +1,63 @@
-// This file is "main.dart"
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
+
+part 'professional_model.freezed.dart';
+part 'professional_model.g.dart';
+
+@freezed
+class ProfessionalModel with _$ProfessionalModel {
+  const factory ProfessionalModel({
+    required String? id,
+    required DateTime? createdAt,
+    required String? email,
+    @JsonKey(
+        fromJson: _documentReferenceFromJson, toJson: _documentReferenceToJson)
+    required DocumentReference? specialtyRef,
+    required String? name,
+    @JsonKey(
+        fromJson: _documentReferenceFromJson, toJson: _documentReferenceToJson)
+    required DocumentReference? teamRef,
+  }) = _ProfessionalModel;
+
+  factory ProfessionalModel.fromJson(Map<String, Object?> json) =>
+      _$ProfessionalModelFromJson(json);
+
+  factory ProfessionalModel.fromFirestore(DocumentSnapshot doc) {
+    Map<String, dynamic> data = doc.data() as Map<String, dynamic>;
+    return ProfessionalModel(
+      id: doc.id,
+      name: data['name'] ?? '',
+      email: data['email'] ?? '',
+      specialtyRef: data['specialtyRef'] as DocumentReference?,
+      teamRef: data['teamRef'] as DocumentReference?,
+      createdAt: (data['createdAt'] as Timestamp?)?.toDate(),
+    );
+  }
+
+  Map<String, Object?> toJson() {
+    return {
+      'id': id,
+      'name': name,
+      'email': email,
+      'specialtyRef': specialtyRef,
+      'teamRef': teamRef,
+      'createdAt': createdAt,
+    };
+  }
+}
+
+DocumentReference _documentReferenceFromJson(Object json) {
+  return FirebaseFirestore.instance.doc(json as String);
+}
+
+String _documentReferenceToJson(DocumentReference? docRef) {
+  return docRef?.path ?? '';
+}
+
+
+
+//Antigo
+/* import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:flutter/foundation.dart';
 import 'package:sad_app/app/modules/home/models/specialties/specialties_model.dart';
@@ -36,4 +94,4 @@ class ProfessionalModel with _$ProfessionalModel {
       createdAt: data['createdAt'] ?? '',
     );
   }
-}
+} */

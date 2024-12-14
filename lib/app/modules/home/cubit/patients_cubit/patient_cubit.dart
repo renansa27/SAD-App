@@ -3,14 +3,14 @@ import 'package:sad_app/app/modules/home/cubit/patients_cubit/patient_state.dart
 import 'package:sad_app/app/modules/home/service/patients_service.dart';
 
 class PatientCubit extends Cubit<PatientState> {
-  final PatientService professionalService;
-  PatientCubit(this.professionalService) : super(PatientState.init());
+  final PatientService patientService;
+  PatientCubit(this.patientService) : super(PatientState.init());
 
   Future<void> getAllPatients() async {
     //emit(ContactLoading());
     //emitIsLoading();
     try {
-      await professionalService.getAllPatients();
+      await patientService.getAllPatients();
       //emitIsNotLoading();
       //emit(ContactLoaded());
     } on Exception catch (e) {
@@ -21,7 +21,7 @@ class PatientCubit extends Cubit<PatientState> {
 
   Future<void> getAllDataFromFirestore() async {
     try {
-      await professionalService.getAllDataFromFirestore();
+      await patientService.getAllDataFromFirestore();
     } on Exception catch (e) {}
   }
 
@@ -33,7 +33,7 @@ class PatientCubit extends Cubit<PatientState> {
 
   Future<void> getPatientById({required String patientId}) async {
     try {
-      await professionalService.getPatientById(patientId);
+      await patientService.getPatientById(patientId);
     } on Exception catch (e) {}
   }
 }

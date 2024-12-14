@@ -20,7 +20,7 @@ import 'package:flutter_modular/flutter_modular.dart';
 import '../cubit/auth_cubit.dart';
 
 class LoginPage extends StatefulWidget {
-  const LoginPage({Key? key}) : super(key: key);
+  const LoginPage({super.key});
 
   @override
   State<LoginPage> createState() => _LoginPageState();

@@ -14,14 +14,9 @@ _$ProfessionalModelImpl _$$ProfessionalModelImplFromJson(
           ? null
           : DateTime.parse(json['createdAt'] as String),
       email: json['email'] as String?,
-      specialtyRef: json['specialtyRef'] == null
-          ? null
-          : SpecialtiesModel.fromJson(
-              json['specialtyRef'] as Map<String, dynamic>),
+      specialtyRef: _documentReferenceFromJson(json['specialtyRef'] as Object),
       name: json['name'] as String?,
-      teamRef: json['teamRef'] == null
-          ? null
-          : TeamsModel.fromJson(json['teamRef'] as Map<String, dynamic>),
+      teamRef: _documentReferenceFromJson(json['teamRef'] as Object),
     );
 
 Map<String, dynamic> _$$ProfessionalModelImplToJson(
@@ -30,7 +25,7 @@ Map<String, dynamic> _$$ProfessionalModelImplToJson(
       'id': instance.id,
       'createdAt': instance.createdAt?.toIso8601String(),
       'email': instance.email,
-      'specialtyRef': instance.specialtyRef,
+      'specialtyRef': _documentReferenceToJson(instance.specialtyRef),
       'name': instance.name,
-      'teamRef': instance.teamRef,
+      'teamRef': _documentReferenceToJson(instance.teamRef),
     };
